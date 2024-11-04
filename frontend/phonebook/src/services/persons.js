@@ -1,9 +1,8 @@
 import axios from "axios";
 
-const baseUrl =
-  process.env.NODE_ENV === "production"
-    ? "/api/persons"
-    : "http://localhost:3001/persons";
+const baseUrl = import.meta.env.PROD
+  ? import.meta.env.VITE_API_URL
+  : "http://localhost:3000/api/persons";
 
 const getAll = () => {
   const request = axios.get(baseUrl);
